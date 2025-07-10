@@ -1,0 +1,21 @@
+<div
+  th:if="${session.message}"
+  th:object="${session.message}"
+  th:with="type=*{type.name().toLowerCase()}"
+  th:fragment="messagebox"
+  th:class="'text-' + type + '-800 border border-' + type + '-300 rounded-lg bg-' + type + '-50 dark:bg-gray-800 dark:text-' + type + '-400 dark:border-' + type + '-800'"
+  class="flex items-center p-4 mb-4 text-sm"
+  role="alert">
+
+  <svg class="flex-shrink-0 inline w-4 h-4 me-3" ...>
+    <!-- your SVG icon -->
+  </svg>
+
+  <span class="sr-only">Info</span>
+  <div>
+    <span th:text="*{content}">Default message</span>
+  </div>
+
+  <!-- ✅ Auto-remove -->
+  <th:block th:remove="tag" th:with="${@sessionHelper.removeMessage()}"></th:block>
+</div>

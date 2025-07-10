@@ -1,0 +1,100 @@
+<!-- Main Content -->
+<main class="sm:pl-64 pt-20 px-4 min-h-screen">
+  <div class="max-w-2xl mx-auto">
+    <div class="card block p-6 bg-white border border-gray-200 rounded-lg shadow-sm hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+      <h1 class="text-2xl font-bold">Add Contact</h1>
+      <p class="text-gray-400 mb-4">
+        This contact will be saved in the cloud. You can directly email this contact from SCM.
+      </p>
+
+      <form action="">
+        <!-- Name -->
+        <div class="mb-3 mt-5">
+          <label for="contact-name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white text-left">Contact Name</label>
+          <div class="relative">
+            <div class="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none">
+              <i class="fa-solid fa-user h-4 w-4"></i>
+            </div>
+            <input 
+              type="text" 
+              id="contact-name" 
+              class="input-field"
+              placeholder="Name" />
+          </div>
+        </div>
+
+        <!-- Email -->
+        <div class="mb-3 mt-5">
+          <label for="contact-email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white text-left">Contact Email</label>
+          <div class="relative">
+            <div class="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none">
+              <i class="fa-solid fa-envelope h-4 w-4"></i>
+            </div>
+            <input 
+              type="email" 
+              id="contact-email" 
+              class="input-field"
+              placeholder="example@gmail.com" />
+          </div>
+        </div>
+
+        <!-- Phone -->
+        <div class="mb-3 mt-5">
+          <label for="contact-phone" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white text-left">Contact Number</label>
+          <div class="relative">
+            <div class="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none">
+              <i class="fa-solid fa-phone h-4 w-4"></i>
+            </div>
+            <input 
+              type="text" 
+              id="contact-phone" 
+              class="input-field"
+              placeholder="Phone number" />
+          </div>
+        </div>
+
+        <!-- Address -->
+        <div class="mb-3">
+          <label for="contact-address" class="block mb-2 text-sm font-medium text-left text-gray-900 dark:text-white">Contact Address</label>
+          <textarea 
+            id="contact-address" 
+            rows="3" 
+            class="textarea-field"
+            placeholder="Address of your contact"></textarea>
+        </div>
+
+        <!-- Description -->
+        <div class="mb-3">
+          <label for="contact-desc" class="block mb-2 text-sm font-medium text-left text-gray-900 dark:text-white">Contact Description</label>
+          <textarea 
+            id="contact-desc" 
+            rows="3" 
+            class="textarea-field"
+            placeholder="Write about your contact here"></textarea>
+        </div>
+
+        <!-- Social Links -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div class="relative">
+            <div class="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none">
+              <i class="fa-solid fa-globe h-4 w-4"></i>
+            </div>
+            <input 
+              type="url" 
+              class="input-field"
+              placeholder="http://website.com" />
+          </div>
+          <div class="relative">
+            <div class="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none">
+              <i class="fa-solid fa-globe h-4 w-4"></i>
+            </div>
+            <input 
+              type="url" 
+              class="input-field"
+              placeholder="http://social.com" />
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</main>

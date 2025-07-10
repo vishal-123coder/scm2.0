@@ -1,0 +1,22 @@
+<!-- templates/user/profile.html -->
+<div th:replace="~{base :: parent(~{::title}, ~{::content}, ~{::script})}"></div>
+
+<!-- Fragments to be injected -->
+<title th:fragment="title">
+  <span th:text="${loggedInUser.name} + ' | SCM'">Profile Page</span>
+</title>
+
+<div th:fragment="content" id="content" class="p-4">
+  <h1 class="text-2xl font-bold mb-4">
+    Welcome, <span th:text="${loggedInUser.name}">User</span>
+  </h1>
+  <p><strong>Email:</strong> <span th:text="${loggedInUser.email}"></span></p>
+  <p><strong>Phone:</strong> <span th:text="${loggedInUser.phoneNumber}"></span></p>
+  <p><strong>About:</strong> <span th:text="${loggedInUser.about}"></span></p>
+</div>
+
+<th:block th:fragment="script">
+  <script>
+    console.log("Profile page JS loaded");
+  </script>
+</th:block>

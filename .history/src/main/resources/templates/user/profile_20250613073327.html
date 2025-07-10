@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en"
+      th:replace="~{base :: parent(~{::#content},~{::title},~{::script})}"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title th:text="${loggedInUser.name} + ' | SCM'">Profile Page</title>
+</head>
+<body>
+    <div id="content">
+        <h1>Welcome to Profile page</h1>
+        <p>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+            Facilis numquam rem doloremque error magnam officia ea sed quis, beatae veritatis!
+        </p>
+    </div>
+    <div id="script">
+        <script>
+            console.log("This is profile page");
+        </script>
+    </div>
+</body>
+</html>

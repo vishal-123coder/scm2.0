@@ -1,0 +1,21 @@
+<!-- templates/user/profile.html -->
+
+<!-- title fragment -->
+<title th:fragment="title">
+  <span th:text="${loggedInUser.name} + ' | SCM'">Profile Page</span>
+</title>
+
+<!-- content fragment -->
+<div th:fragment="content" id="content">
+  <h1 class="text-2xl font-bold mb-4">Welcome, <span th:text="${loggedInUser.name}">User</span></h1>
+  <p>Your email: <span th:text="${loggedInUser.email}">example@gmail.com</span></p>
+  <p>Your phone: <span th:text="${loggedInUser.phoneNumber}">1234567890</span></p>
+  <p>About you: <span th:text="${loggedInUser.about}">N/A</span></p>
+</div>
+
+<!-- script fragment -->
+<th:block th:fragment="script">
+  <script>
+    console.log("This is the profile page");
+  </script>
+</th:block>

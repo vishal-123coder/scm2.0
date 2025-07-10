@@ -1,0 +1,33 @@
+<!-- File: src/main/resources/templates/user/profile.html -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+  <!-- ✅ Layout inheritance with a null check -->
+  <div th:if="${loggedInUser != null}" th:replace="~{base :: parent(~{::title}, ~{::content}, ~{::script})}"></div>
+
+  <!-- ❌ Fallback if user not logged in -->
+  <div th:unless="${loggedInUser != null}">
+    <h1>User is not logged in or user is null!</h1>
+  </div>
+
+  <!-- ✅ Title fragment -->
+  <title th:fragment="title">
+    <span th:text="${loggedInUser.name} + ' | Profile'">Profile</span>
+  </title>
+
+  <!-- ✅ Content fragment -->
+  <div th:fragment="content" class="p-4">
+    <h1 class="text-2xl font-bold mb-2">User Profile</h1>
+    <p><strong>Name:</strong> <span th:text="${loggedInUser.name}">Vishal</span></p>
+    <p><strong>Email:</strong> <span th:text="${loggedInUser.email}">vishal@example.com</span></p>
+    <p><strong>Phone:</strong> <span th:text="${loggedInUser.phoneNumber}">9999999999</span></p>
+  </div>
+
+  <!-- ✅ Optional script fragment -->
+  <th:block th:fragment="script">
+    <script>
+      console.log("Profile page loaded");
+    </script>
+  </th:block>
+
+</html>

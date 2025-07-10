@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" 
+ th:replace="~{base :: parent(~{::section}, ~{::title}, ~{::script})}">
+  <head>
+    <title>My Profile</title>
+  </head>
+
+  <body>
+    <section>
+      <div class="p-4">
+        <h1 class="text-2xl font-bold">Welcome to your profile, <span th:text="${loggedInUser.name}">User</span>!</h1>
+        <p>Email: <span th:text="${loggedInUser.email}"></span></p>
+      </div>
+    </section>
+
+    <script>
+      console.log("Profile page loaded");
+    </script>
+  </body>
+</html>

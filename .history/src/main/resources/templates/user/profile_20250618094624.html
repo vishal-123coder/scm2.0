@@ -1,0 +1,17 @@
+<!-- templates/user/profile.html -->
+<div th:replace="~{base :: parent(~{::title}, ~{::content}, ~{::script})}"></div>
+
+<title th:fragment="title">
+  <span th:text="${loggedInUser.name} + ' | SCM'">Profile Page</span>
+</title>
+
+<div th:fragment="content" class="p-4">
+  <h1>Welcome, <span th:text="${loggedInUser.name}">User</span></h1>
+  <p>Email: <span th:text="${loggedInUser.email}">email@example.com</span></p>
+</div>
+
+<th:block th:fragment="script">
+  <script>
+    console.log("Profile page loaded");
+  </script>
+</th:block>

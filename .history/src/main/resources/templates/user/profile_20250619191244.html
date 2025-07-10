@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html
+  lang="en"
+  xmlns:th="http://www.thymeleaf.org"
+  th:replace="~{base :: parent(~{::#content}, ~{::title}, ~{::script})}">
+<head>
+  <!-- Title Fragment -->
+  <th:block th:fragment="title">
+    <title th:text="${loggedInUser.name} + ' | SCM'">Profile Page</title>
+  </th:block>
+</head>
+
+<body>
+  <!-- Main Content -->
+  <div id="content" class="pl-52 pt-20" style="height: 1000px">
+    <h1 class="text-2xl font-bold mb-2">Welcome Profile Page</h1>
+    <p>Lorem ipsum dolor sit amet consectetur.</p>
+  </div>
+
+  <!-- Script Fragment -->
+  <th:block th:fragment="script">
+    <script>
+      console.log("this is profile page");
+    </script>
+  </th:block>
+</body>
+</html>

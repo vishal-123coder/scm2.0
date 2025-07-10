@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <title>Profile Page</title>
+  </head>
+  <body>
+    <!-- Use base layout -->
+    <div
+      th:replace="~{base :: parent(~{::section}, ~{::title}, ~{::script})}"
+    ></div>
+
+    <!-- Title Fragment -->
+    <th:block th:fragment="title">
+      <title>Profile</title>
+    </th:block>
+
+    <!-- Main Section Fragment -->
+    <th:block th:fragment="section">
+      <section class="p-4">
+        <h1 class="text-2xl font-bold mb-2">
+          Welcome, <span th:text="${loggedInUser.name}">User</span>!
+        </h1>
+        <p>Email: <span th:text="${loggedInUser.email}">email@example.com</span></p>
+      </section>
+    </th:block>
+
+    <!-- Script Fragment -->
+    <th:block th:fragment="script">
+      <script>
+        console.log("Profile page loaded.");
+      </script>
+    </th:block>
+  </body>
+</html>

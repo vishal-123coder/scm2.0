@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <title>Profile</title>
+  </head>
+
+  <body>
+    <!-- Base layout inclusion -->
+    <div th:replace="~{base :: parent(~{::section}, ~{::title}, ~{::script})}"></div>
+
+    <!-- Title fragment -->
+    <th:block th:fragment="title">
+      <title>Profile - SCM</title>
+    </th:block>
+
+    <!-- Main section -->
+    <th:block th:fragment="section">
+      <section class="p-4 pl-64 pt-64" style="height: 1000px;">
+        <h1 class="text-2xl font-bold mb-2">
+          Welcome, <span th:text="${loggedInUser.name}+' | SCM'">User</span>!
+        </h1>
+        <p>Email: <span th:text="${loggedInUser.email}">email@example.com</span></p>
+      </section>
+    </th:block>
+
+    <!-- Scripts -->
+    <th:block th:fragment="script">
+      <script>
+        console.log("this is Profile page");
+      </script>
+    </th:block>
+  </body>
+</html>

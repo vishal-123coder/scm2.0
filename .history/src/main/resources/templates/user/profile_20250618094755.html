@@ -1,0 +1,23 @@
+<!-- File: src/main/resources/templates/user/profile.html -->
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <div th:replace="~{base :: parent(~{::title}, ~{::content}, ~{::script})}"></div>
+
+  <title th:fragment="title">
+    <span th:text="${loggedInUser.name} + ' | Profile'">Profile</span>
+  </title>
+
+  <div th:fragment="content" class="p-4">
+    <h1 class="text-2xl font-bold mb-2">User Profile</h1>
+    <p><strong>Name:</strong> <span th:text="${loggedInUser.name}">Vishal</span></p>
+    <p><strong>Email:</strong> <span th:text="${loggedInUser.email}">vishal@example.com</span></p>
+    <p><strong>Phone:</strong> <span th:text="${loggedInUser.phoneNumber}">9999999999</span></p>
+  </div>
+
+  <th:block th:fragment="script">
+    <script>
+      console.log("Profile page loaded");
+    </script>
+  </th:block>
+</html>

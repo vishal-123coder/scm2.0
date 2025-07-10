@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html
+  lang="en"
+  xmlns:th="http://www.thymeleaf.org"
+  th:replace="~{base :: parent(~{::#content}, ~{::title}, ~{::script})}">
+<head>
+  <!-- Title Fragment -->
+  <th:block th:fragment="title">
+    <title>
+      Add Contact
+    </title>
+  </th:block>
+</head>
+<body>
+
+  <div id="content">
+
+    <!--  user is logged in : sidebar -->
+      <div th:if="${loggedInUser}">
+        <div th:replace="~{user/sidebar::sidebar}"></div>
+      </div>
+
+
+  <!-- Main Content -->
+    <div class="grid grid-cols-12">
+        <div class="col-span-3"></div>
+        <div class="col-span-6">
+            form
+        </div>
+    </div>
+   </div>
+
+  <!-- Script Fragment -->
+  <th:block th:fragment="script">
+    <script>
+      console.log("this is profile page");
+    </script>
+  </th:block>
+</body>
+</html>

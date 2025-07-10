@@ -1,0 +1,21 @@
+<!-- templates/user/profile.html -->
+
+<!-- ✅ Title fragment -->
+<title th:fragment="title">
+  <span th:text="${loggedInUser.name} + ' | SCM'">Profile Page</span>
+</title>
+
+<!-- ✅ Content fragment -->
+<div th:fragment="content" id="content">
+  <h1>Welcome to Profile Page</h1>
+  <p>
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur, ratione!
+  </p>
+</div>
+
+<!-- ✅ Script fragment -->
+<th:block th:fragment="script">
+  <script>
+    console.log("This is the profile page");
+  </script>
+</th:block>

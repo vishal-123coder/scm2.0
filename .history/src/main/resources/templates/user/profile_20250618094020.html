@@ -1,0 +1,35 @@
+<!-- src/main/resources/templates/user/profile.html -->
+<html
+  xmlns:th="http://www.thymeleaf.org"
+  th:replace="~{base :: parent(
+    ~{::title},
+    ~{::content},
+    ~{::script}
+  )}"
+>
+  <!-- Title fragment -->
+  <head>
+    <title th:fragment="title">
+      <span th:text="${loggedInUser.name} + ' | SCM'">Profile Page</span>
+    </title>
+  </head>
+
+  <body>
+    <!-- Content fragment -->
+    <div th:fragment="content" id="content" class="p-4">
+      <h1 class="text-2xl font-bold mb-4">
+        Welcome, <span th:text="${loggedInUser.name}">User</span>
+      </h1>
+      <p><strong>Email:</strong> <span th:text="${loggedInUser.email}">email@example.com</span></p>
+      <p><strong>Phone:</strong> <span th:text="${loggedInUser.phoneNumber}">1234567890</span></p>
+      <p><strong>About:</strong> <span th:text="${loggedInUser.about}">N/A</span></p>
+    </div>
+
+    <!-- Script fragment -->
+    <th:block th:fragment="script">
+      <script>
+        console.log("This is the profile page");
+      </script>
+    </th:block>
+  </body>
+</html>

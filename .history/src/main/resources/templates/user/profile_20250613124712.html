@@ -1,0 +1,19 @@
+<!-- user/profile.html -->
+<!DOCTYPE html>
+<html
+  lang="en"
+  th:replace="~{base :: parent(~{::#content},~{::title},~{::script})}"
+>
+<head>
+    <title th:text="${loggedInUser.name} +' | SCM'">Profile page</title>
+</head>
+  <body>
+     <div id="content">
+            <h1>Welcome to profile page </h1>
+            <p>This is your profile page.</p>
+    </div>
+        <script>
+            console.log("Profile page loaded");
+        </script>
+  </body>
+</html>
