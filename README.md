@@ -1,4 +1,3 @@
-:::writing{variant="document" id="48192"}
 # Smart Contact Manager (SCM) — Spring Boot Full-Stack Secure Contact Management System
 
 A full-stack secure contact management system built using Spring Boot and Thymeleaf with PostgreSQL as database. The application provides secure authentication, role-based access control, cloud-based image storage, and RESTful APIs for scalable backend integration.
@@ -60,13 +59,13 @@ A full-stack secure contact management system built using Spring Boot and Thymel
 # Screenshots
 
 ## Login Page
-![Login Page](screenshots/login-page.png)
+![Login Page](https://raw.githubusercontent.com/vishal-123coder/scm2.0/41c2ea480bf2e4e520e630725152f5a52fe85892/screenshots/SCM_login.png)
 
 ## Signup Page
-![Signup Page](screenshots/signup-page.png)
+![Signup Page](https://raw.githubusercontent.com/vishal-123coder/scm2.0/41c2ea480bf2e4e520e630725152f5a52fe85892/screenshots/SCM_signup.png)
 
 ## Dashboard
-![Dashboard](screenshots/dashboard.png)
+![Dashboard](https://raw.githubusercontent.com/vishal-123coder/scm2.0/41c2ea480bf2e4e520e630725152f5a52fe85892/screenshots/SCM_dashboard.png)
 
 ## 🚀 Future Improvements
 
