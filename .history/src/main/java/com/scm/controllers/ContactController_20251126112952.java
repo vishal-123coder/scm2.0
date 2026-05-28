@@ -1,6 +1,5 @@
 package com.scm.controllers;
 
-import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
@@ -17,7 +16,6 @@ import com.scm.helpers.Helper;
 import com.scm.helpers.Message;
 import com.scm.helpers.MessageType;
 import com.scm.services.ContactService;
-import com.scm.services.ImageService;
 import com.scm.services.UserService;
 
 import jakarta.servlet.http.HttpSession;
@@ -27,12 +25,8 @@ import jakarta.validation.Valid;
 @RequestMapping("/user/contacts")
 public class ContactController {
 
-    private Logger logger = org.slf4j.LoggerFactory.getLogger(this.getClass());
     @Autowired
     private ContactService contactService;
-
-    @Autowired
-    private ImageService imageService;
 
     @Autowired
     private UserService userService;
@@ -53,8 +47,6 @@ public class ContactController {
 
         // validate form
         if(result.hasErrors()){
-            result.getAllErrors().forEach(erorr -> logger.info(erorr.toString()));
-
             session.setAttribute("message", Message.builder()
             .content("Please correct the errors below.")
             .type(MessageType.red)
@@ -70,14 +62,6 @@ public class ContactController {
 
         //process the contact pic
 
-        // image process
-
-       String fileURL = imageService.uploadImage(contactForm.getContactImage());
-
-        // logger.info("file information : {}", contactForm.getProfileImage().getOriginalFilename());
-
-
-
         Contact contact = new Contact();
 
         contact.setName(contactForm.getName());
@@ -89,9 +73,7 @@ public class ContactController {
         contact.setUser(user);
         contact.setLinkedInLink(contactForm.getLinkedInLink());
         contact.setWebsiteLink(contactForm.getWebsiteLink());
-        // contact.setContactImage(fileURL);
-        
-        //contactService.save(contact);
+        contactService.save(contact);
 
         // Debug: Print form values
         System.out.println("Received ContactForm: " + contactForm);

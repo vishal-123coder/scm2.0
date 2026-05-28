@@ -5,41 +5,20 @@ public class Message {
     private String content;
     private MessageType type;
 
-    // No-arg constructor
-    public Message() {
-        this.type = MessageType.blue;  // Default value
-    }
+    public Message() {}
 
-    // All-args constructor
     public Message(String content, MessageType type) {
         this.content = content;
         this.type = type;
     }
 
-    // Getter and Setter for content
-    public String getContent() {
-        return content;
-    }
-
-    public void setContent(String content) {
-        this.content = content;
-    }
-
-    // Getter and Setter for type
-    public MessageType getType() {
-        return type;
-    }
-
-    public void setType(MessageType type) {
-        this.type = type;
-    }
-
-    // Builder pattern implementation
+    // ----- BUILDER -----
     public static Builder builder() {
         return new Builder();
     }
 
     public static class Builder {
+
         private String content;
         private MessageType type;
 
@@ -58,11 +37,15 @@ public class Message {
         }
     }
 
+    // Getters and Setters
+    public String getContent() { return content; }
+    public void setContent(String content) { this.content = content; }
+
+    public MessageType getType() { return type; }
+    public void setType(MessageType type) { this.type = type; }
+
     @Override
     public String toString() {
-        return "Message{" +
-                "content='" + content + '\'' +
-                ", type=" + type +
-                '}';
+        return "Message{" + "content='" + content + '\'' + ", type=" + type + '}';
     }
 }

@@ -17,7 +17,6 @@ import com.scm.helpers.Helper;
 import com.scm.helpers.Message;
 import com.scm.helpers.MessageType;
 import com.scm.services.ContactService;
-import com.scm.services.ImageService;
 import com.scm.services.UserService;
 
 import jakarta.servlet.http.HttpSession;
@@ -28,11 +27,9 @@ import jakarta.validation.Valid;
 public class ContactController {
 
     private Logger logger = org.slf4j.LoggerFactory.getLogger(this.getClass());
-    @Autowired
-    private ContactService contactService;
 
     @Autowired
-    private ImageService imageService;
+    private ContactService contactService;
 
     @Autowired
     private UserService userService;
@@ -40,74 +37,63 @@ public class ContactController {
     // Show Add Contact Form
     @RequestMapping("/add")
     public String addContactView(Model model) {
-        ContactForm contactForm = new ContactForm();        
-        model.addAttribute("contactForm", contactForm);
+        model.addAttribute("contactForm", new ContactForm());
         return "user/add_contact";
     }
 
     // Handle Contact Form Submission
     @RequestMapping(value = "/add", method = RequestMethod.POST)
-    public String saveContact(@Valid @ModelAttribute ContactForm contactForm, BindingResult result , Authentication authentication, HttpSession session) {
-       
-        // process form data
+    public String saveContact(
+            @Valid @ModelAttribute ContactForm contactForm,
+            BindingResult result,
+            Authentication authentication,
+            HttpSession session
+    ) {
 
-        // validate form
-        if(result.hasErrors()){
-            result.getAllErrors().forEach(erorr -> logger.info(erorr.toString()));
+        // ----------- VALIDATION FAILS -----------
+        if (result.hasErrors()) {
+            session.setAttribute(
+                    "message",
+                    Message.builder()
+                            .content("Please correct the errors below.")
+                            .type(MessageType.red)
+                            .build()
+            );
 
-            session.setAttribute("message", Message.builder()
-            .content("Please correct the errors below.")
-            .type(MessageType.red)
-            .build());
-              return "user/add_contact";
+            return "user/add_contact";
         }
 
+        // Get logged-in user
         String username = Helper.getEmailOfLoggedInUser(authentication);
-
-
-        // form --> contact
         User user = userService.getUserByEmail(username);
 
-        //process the contact pic
+        // Debug file info
+        logger.info("File uploaded: {}", contactForm.getProfileImage().getOriginalFilename());
 
-        // image process
-
-       String fileURL = imageService.uploadImage(contactForm.getContactImage());
-
-        // logger.info("file information : {}", contactForm.getProfileImage().getOriginalFilename());
-
-
-
+        // ----------- FORM → ENTITY -----------
         Contact contact = new Contact();
-
         contact.setName(contactForm.getName());
-        contact.setFavorite(contactForm.isFavorite());
         contact.setEmail(contactForm.getEmail());
         contact.setPhoneNumber(contactForm.getPhoneNumber());
         contact.setAddress(contactForm.getAddress());
         contact.setDescription(contactForm.getDescription());
-        contact.setUser(user);
         contact.setLinkedInLink(contactForm.getLinkedInLink());
         contact.setWebsiteLink(contactForm.getWebsiteLink());
-        // contact.setContactImage(fileURL);
-        
-        //contactService.save(contact);
+        contact.setFavorite(contactForm.isFavorite());
+        contact.setUser(user);
 
-        // Debug: Print form values
-        System.out.println("Received ContactForm: " + contactForm);
-        System.out.println("Contact Name: " + contactForm.getName());
-        System.out.println("Contact Email: " + contactForm.getEmail());
-        System.out.println("Is Favorite: " + contactForm.isFavorite());
+        // ----------- SAVE CONTACT -----------
+        contactService.save(contact);
 
+        // ----------- SUCCESS MESSAGE -----------
+        session.setAttribute(
+                "message",
+                Message.builder()
+                        .content("Your contact has been saved successfully!")
+                        .type(MessageType.green)
+                        .build()
+        );
 
-       
-        System.out.println("Contact saved!");
-
-        session.setAttribute("message", 
-              Message.builder()
-                 .content("\"Your contact has been saved successfully!")
-                 .type(MessageType.green)
-                 .build());
         return "redirect:/user/contacts/add";
     }
 }

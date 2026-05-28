@@ -32,7 +32,7 @@ public class ContactForm {
 
     private String linkedInLink;
 
-    private MultipartFile ContactImage;
+    private MultipartFile profileImage;
 
     public String getName() {
         return name;
@@ -98,12 +98,12 @@ public class ContactForm {
         this.linkedInLink = linkedInLink;
     }
 
-    public MultipartFile getContactImage() {
-        return ContactImage;
+    public MultipartFile getProfileImage() {
+        return profileImage;
     }
 
-    public void setProfileImage(MultipartFile contactImage) {
-        this.ContactImage = contactImage;
+    public void setProfileImage(MultipartFile profileImage) {
+        this.profileImage = profileImage;
     }
 
 

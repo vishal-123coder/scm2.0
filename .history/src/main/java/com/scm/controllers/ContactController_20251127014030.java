@@ -17,7 +17,6 @@ import com.scm.helpers.Helper;
 import com.scm.helpers.Message;
 import com.scm.helpers.MessageType;
 import com.scm.services.ContactService;
-import com.scm.services.ImageService;
 import com.scm.services.UserService;
 
 import jakarta.servlet.http.HttpSession;
@@ -30,9 +29,6 @@ public class ContactController {
     private Logger logger = org.slf4j.LoggerFactory.getLogger(this.getClass());
     @Autowired
     private ContactService contactService;
-
-    @Autowired
-    private ImageService imageService;
 
     @Autowired
     private UserService userService;
@@ -53,8 +49,6 @@ public class ContactController {
 
         // validate form
         if(result.hasErrors()){
-            result.getAllErrors().forEach(erorr -> logger.info(erorr.toString()));
-
             session.setAttribute("message", Message.builder()
             .content("Please correct the errors below.")
             .type(MessageType.red)
@@ -72,10 +66,7 @@ public class ContactController {
 
         // image process
 
-       String fileURL = imageService.uploadImage(contactForm.getContactImage());
-
-        // logger.info("file information : {}", contactForm.getProfileImage().getOriginalFilename());
-
+        logger.info("file information : {}", contactForm.getProfileImage().getOriginalFilename());
 
 
         Contact contact = new Contact();
@@ -89,8 +80,6 @@ public class ContactController {
         contact.setUser(user);
         contact.setLinkedInLink(contactForm.getLinkedInLink());
         contact.setWebsiteLink(contactForm.getWebsiteLink());
-        // contact.setContactImage(fileURL);
-        
         //contactService.save(contact);
 
         // Debug: Print form values

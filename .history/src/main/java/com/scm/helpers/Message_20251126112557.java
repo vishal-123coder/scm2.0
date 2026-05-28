@@ -7,6 +7,7 @@ public class Message {
 
     // No-arg constructor
     public Message() {
+        // Default constructor
         this.type = MessageType.blue;  // Default value
     }
 
@@ -34,7 +35,7 @@ public class Message {
         this.type = type;
     }
 
-    // Builder pattern implementation
+   // Builder pattern implementation
     public static Builder builder() {
         return new Builder();
     }
@@ -56,8 +57,8 @@ public class Message {
         public Message build() {
             return new Message(content, type);
         }
-    }
 
+    // Optional: toString method
     @Override
     public String toString() {
         return "Message{" +
@@ -65,4 +66,10 @@ public class Message {
                 ", type=" + type +
                 '}';
     }
+
+    public static Object builder() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'builder'");
+    }
+}
 }

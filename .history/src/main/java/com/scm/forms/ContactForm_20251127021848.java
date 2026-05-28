@@ -98,12 +98,12 @@ public class ContactForm {
         this.linkedInLink = linkedInLink;
     }
 
-    public MultipartFile getContactImage() {
-        return ContactImage;
+    public MultipartFile getProfileImage() {
+        return profileImage;
     }
 
-    public void setProfileImage(MultipartFile contactImage) {
-        this.ContactImage = contactImage;
+    public void setProfileImage(MultipartFile profileImage) {
+        this.profileImage = profileImage;
     }
 
 
