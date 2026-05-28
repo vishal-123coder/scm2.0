@@ -1,62 +1,89 @@
-# Smart Contact Manager
+:::writing{variant="document" id="48192"}
+# Smart Contact Manager (SCM) — Spring Boot Full-Stack Secure Contact Management System
 
-A full-stack contact management web application built using Spring Boot, Spring Security, Thymeleaf, and PostgreSQL. The application allows users to securely manage contacts with authentication, cloud image upload, email functionality, pagination, and search features.
+A full-stack secure contact management system built using Spring Boot and Thymeleaf with PostgreSQL as database. The application provides secure authentication, role-based access control, cloud-based image storage, and RESTful APIs for scalable backend integration.
 
-## Features
+## 🚀 Key Features
 
-* User Registration & Login
-* JWT Authentication & Authorization
-* OAuth Login (Google & GitHub)
-* Role-Based Access Control
-* Add / Update / Delete Contacts
-* Search & Pagination
-* Cloudinary Image Upload
-* Email Sending with Attachments
-* Form Validation & Exception Handling
-* Responsive UI using Tailwind CSS
-* REST API Integration
+- Secure user authentication & registration system
+- JWT-based authentication & authorization (stateless security)
+- OAuth2 login integration (Google & GitHub)
+- Role-based access control (User/Admin)
+- Full CRUD operations for contacts
+- Advanced search and pagination support
+- Cloudinary integration for image storage
+- Email service with attachment support
+- Input validation & global exception handling
+- RESTful API architecture
+- Responsive UI using Tailwind CSS
   
-  ## Tech Stack
+## 🧰 Tech Stack
 
 ### Backend
-
-* Java
-* Spring Boot
-* Spring Security
-* Spring MVC
-* Hibernate / JPA
+- Java 17+
+- Spring Boot
+- Spring Security
+- Spring MVC
+- Hibernate / JPA
 
 ### Frontend
-
-* Thymeleaf
-* HTML
-* Tailwind CSS
-* JavaScript
+- Thymeleaf
+- HTML5
+- Tailwind CSS
+- JavaScript
 
 ### Database
+- PostgreSQL
 
-* PostgreSQL
+### Tools & Services
+- Maven
+- Postman (API Testing)
+- Git & GitHub
+- Cloudinary
 
-### Tools
+## 🔐 Authentication & Security
 
-* Maven
-* Postman
-* Git & GitHub
-* Cloudinary
+- JWT-based authentication for stateless API security
+- Spring Security for endpoint protection
+- OAuth2 integration with Google & GitHub
+- Role-based authorization for secure access control
 
-### Authentication Section
+### 📡 API Features
 
-JWT
-Spring Security
-Role-based auth
+- RESTful APIs for all core operations
+- Secure endpoints with JWT token validation
+- Tested using Postman
+- Proper request/response structure with exception handling
+- Tested APIs using Postman with proper request/response validation
+- Designed RESTful APIs following best practices for scalability
 
-## Authentication
-This application uses Spring Security with JWT Authentication for securing APIs and user sessions. OAuth2 login is also integrated with Google and GitHub.
+# Screenshots
 
-## Future Improvements
+## Login Page
+![Login Page](screenshots/login-page.png)
 
-- Docker Support
-- Microservices Architecture
-- Redis Caching
-- CI/CD Pipeline
-- Unit & Integration Testing
+## Signup Page
+![Signup Page](screenshots/signup-page.png)
+
+## Dashboard
+![Dashboard](screenshots/dashboard.png)
+
+## 🚀 Future Improvements
+
+- Docker containerization
+- Microservices architecture migration
+- Redis caching for performance optimization
+- CI/CD pipeline integration
+- Unit and integration testing coverage
+  
+### 📌 Project Highlights
+Designed for secure and scalable contact management
+Implements industry-standard authentication mechanisms
+Demonstrates full-stack development with production-ready features
+API-first backend design with modular architecture
+
+## 👨‍💻 Author
+
+**Vishal Rajput**  
+GitHub: https://github.com/vishal-123coder  
+LinkedIn: https://linkedin.com/in/vishal-java
